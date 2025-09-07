@@ -1,22 +1,25 @@
+
+
 const categoryTrees = (ctgName) =>{
+  
    const url = `https://openapi.programming-hero.com/api/category/${ctgName}`
    fetch(url)
    .then(res=>res.json())
-   .then(data=>displayCatagoryTrees(data.plants)
+   .then(data=>displayCategoryTrees(data.plants)
    )
    
 }
-const displayCatagoryTrees = (ctgDetails) =>{
+const displayCategoryTrees = (ctgDetails) =>{
     const removeIt = document.getElementById("all-categories").classList.remove("active");
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     ctgDetails.forEach(ctgDetail => {
          const card = document.createElement("div");
           card.innerHTML = `
-          <div class="card bg-white h-[470px]">
+          <div class="card bg-white h-[470px] shadow-md">
                         <figure><img src="${ctgDetail.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
-                        <h2 class="font-bold text-xl">${ctgDetail.name}</h2>
+                        <h2 onclick = "my_modal_5.showModal()" class="font-bold text-xl cursor-pointer">${ctgDetail.name}</h2>
                         <p>${ctgDetail.description}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
@@ -24,7 +27,7 @@ const displayCatagoryTrees = (ctgDetails) =>{
                             </div>
                             <p class=" text-green-700">ট <span class="text-green-700 font-bold text-xl">${ctgDetail.price}</span></p>
                         </div>
-                        <button class="bg-green-400 text-black w-full text-center p-3 rounded-3xl cursor-pointer">Add to Cart</button>
+                        <button onclick="addPrice()" class="add-cart bg-green-400 text-black w-full text-center p-3 rounded-3xl cursor-pointer">Add to Cart</button>
                         </div>
                       </div>
           `
@@ -75,10 +78,10 @@ const displayTrees = (trees) => {
         
           const card = document.createElement("div");
           card.innerHTML = `
-          <div class="card bg-white h-[470px]">
+          <div class="card bg-white h-[470px] shadow-md">
                         <figure><img src="${tree.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
-                        <h2 class="font-bold text-xl">${tree.name}</h2>
+                        <h2 onclick = "my_modal_5.showModal()" class="font-bold text-xl cursor-pointer">${tree.name}</h2>
                         <p>${tree.description}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
@@ -86,7 +89,7 @@ const displayTrees = (trees) => {
                             </div>
                             <p class=" text-green-700">ট <span class="text-green-700 font-bold text-xl">${tree.price}</span></p>
                         </div>
-                        <button class="bg-green-400 text-black w-full text-center p-3 rounded-3xl cursor-pointer">Add to Cart</button>
+                        <button onclick="addPrice('${tree.name}','${tree.price}')"  class="add-cart bg-green-400 text-black w-full text-center p-3 rounded-3xl cursor-pointer">Add to Cart</button>
                         </div>
                       </div>
           `
@@ -95,3 +98,10 @@ const displayTrees = (trees) => {
     });
 }
 loadTrees();
+const addPrice = (name , price) =>{
+  console.log(name)
+  console.log(price);
+  
+  
+}
+
