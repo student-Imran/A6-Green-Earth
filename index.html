@@ -82,11 +82,33 @@ generations.</p>
 
     </header>
 
-     <main class="bg-[#f0fdf4]">
-      
+     <main class="bg-[#f0fdf4] py-16">
+          <h1 class="text-center text-3xl font-bold ">Choose Your Trees</h1>
+
+          <div class="functionalities grid grid-cols-12 w-11/12 border-1 mx-auto h-[500px] mt-5">
+                <div class="catagories border-1 col-span-2">
+                      <h2 class="font-bold p-4">Categories</h2>
+                </div>
+                <div class="card-container border-1 grid grid-cols-3 col-span-8">
+
+                </div>
+                <div class="cart-history border-1 col-span-2 bg-white rounded-md p-3">
+                    <h2 class="font-bold">Your Cart</h2>
+                    <div class="card-of-cart-history bg-[#cff0dc] flex justify-between items-center rounded-xl">
+                         <div class="card-left p-4">
+                            <h2 class="font-bold">Mango Tree</h2>
+                            <p class="text-gray-400">ট 500 x 1</p>
+                         </div>
+                         <div class="card-right p-4">
+                            <p class="text-gray-400 font-bold">X</p>
+                         </div>
+                    </div>
+                </div>
+          </div>
+
 
         <!-- Details section -->
-     <section>
+     <section class="hidden">
         <h1 class="font-bold text-4xl text-center mb-8">About the Campaign</h1>
         <div class="campaign-details flex justify-between items-center gap-6 w-7/12 mx-auto">
         <div class="image flex-1">
@@ -106,7 +128,7 @@ generations.</p>
 
      <!-- Our Impact section -->
 
-      <section class="bg-[#cff0dc] py-20">
+      <section class="bg-[#cff0dc] py-20 hidden">
         <h1 class="font-bold text-3xl text-center mb-8">Our Impact</h1>
         <div class="impact-card-container flex justify-around items-center gap-8 w-11/12 mx-auto">
             <div class="card1 bg-white rounded-xl flex justify-center items-center flex-1 h-32">
@@ -130,6 +152,27 @@ generations.</p>
         </div>
       </section>
 
-     
+     <!-- Form Section  -->
+        
+      <section class=" bg-green-800  py-14 hidden">
+        <h1 class="text-3xl text-center mb-8 text-white">Plants a Tree Today</h1>
+        <div class="form w-4/12 mx-auto  p-8 bg-green-700 rounded-lg">
+            <input type="text" placeholder="Your Name" class="input  mb-5 w-full" /> <br>
+             <input type="text" placeholder="Your Email Address" class="input  mb-5 w-full" /> <br>
+              <input type="text" placeholder="Enter Your Name" class="input  mb-5 w-full" /> <br>
+              <button class="btn bg-[#FACC15] w-32 rounded-2xl border-none text-[#15803d] shadow-none w-full">Donate Now</button>
+              
+        </div>
+      </section>
+
+      <!-- Footer section  -->
+
+      <footer class="bg-[#14532d] flex justify-center items-center hidden">
+          <div>
+             <p class="text-white py-6">© 2025 Green Earth. All Rights Reserved.</p>
+          </div>
+      </footer>
+
+
 </body>
 </html>
