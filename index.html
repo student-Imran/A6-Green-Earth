@@ -15,16 +15,121 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <!-- Header part  -->
+
     <header>
+
+        <!-- Navbar  -->
+
+       <nav>
+        <div class="navbar bg-base-100 shadow-sm bg-[#15803d]">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a>Item 1</a></li>
+        <li>
+          <a>Parent</a>
+          <ul class="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
+    <a class="btn btn-ghost text-xl text-white ml-16">Green Earth</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1 text-white">
+      <li><a>About</a></li>
+      <li><a>Gallery</a></li>
+      <li><a>Plan a tree</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <a class="btn bg-[#FACC15] w-32 rounded-2xl border-none text-[#15803d] shadow-none mr-16">Button</a>
+  </div>
+</div>
+       </nav>
+        
+       <!-- Banner  -->
+
+       <section class="bg-[#cff0dc]">
+        <div class="image-container flex justify-between items-center">
+             <div class="image-left">
+            <figure><img src="./assets/hero-leaf1.png" alt=""></figure>
+         </div>
+           <div class="banner-container text-center space-y-4">
+            <h2 class="text-4xl font-bold">Plant a Tree, Grow a Future</h2>
+            <p>Join our mission to plant 1 million trees and make the Earth greener for future
+generations.</p>
+            <button class="ml-18 btn bg-[#FACC15] w-32 rounded-2xl border-none text-[#15803d] shadow-none mr-16">Get Involved</button>
+            
+        </div>
+         <div class="image-right">
+             <figure><img src="./assets/hero-leaf2.png" alt=""></figure>
+         </div>
+        </div>
+        
+         
+         
+       </section>
 
     </header>
 
-     <main>
+     <main class="bg-[#f0fdf4]">
+      
 
+        <!-- Details section -->
+     <section>
+        <h1 class="font-bold text-4xl text-center mb-8">About the Campaign</h1>
+        <div class="campaign-details flex justify-between items-center gap-6 w-7/12 mx-auto">
+        <div class="image flex-1">
+            <figure><img src="./assets/about.png" alt=""></figure>
+        </div>
+        <div class="details flex-1">
+            <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+            <ul class="list-disc list-inside">
+                <li>Restoration of natural habitats</li>
+                <li>Improvement of air quality</li>
+                <li>Support for local communities</li>
+            </ul>
+        </div>
+        </div>
+     </section>
      </main>    
 
-     <footer>
-        
-     </footer>
+     <!-- Our Impact section -->
+
+      <section class="bg-[#cff0dc] py-20">
+        <h1 class="font-bold text-3xl text-center mb-8">Our Impact</h1>
+        <div class="impact-card-container flex justify-around items-center gap-8 w-11/12 mx-auto">
+            <div class="card1 bg-white rounded-xl flex justify-center items-center flex-1 h-32">
+               <div class="text-center">
+                <h1 class="font-bold text-[#15803d] text-4xl">500K+</h1>
+                <p>Trees Planted</p>
+               </div>
+            </div>
+            <div class="card1 bg-white rounded-xl flex justify-center items-center flex-1 h-32">
+               <div class="text-center">
+                <h1 class="font-bold text-[#15803d] text-4xl">120+</h1>
+                <p>Communities Involved</p>
+               </div>
+            </div>
+            <div class="card1 bg-white rounded-xl flex justify-center items-center flex-1 h-32">
+               <div class="text-center">
+                <h1 class="font-bold text-[#15803d] text-4xl">30+</h1>
+                <p>Countries reach</p>
+               </div>
+            </div>
+        </div>
+      </section>
+
+     
 </body>
 </html>
