@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
-
+     
+     <!-- Style-Css Link -->
+     <link rel="stylesheet" href="style.css">
     <!-- DaisyUi and TailWindCss Link -->
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -85,21 +87,26 @@ generations.</p>
      <main class="bg-[#f0fdf4] py-16">
           <h1 class="text-center text-3xl font-bold ">Choose Your Trees</h1>
 
-          <div class="functionalities grid grid-cols-12 w-11/12 border-1 mx-auto h-[500px] mt-5">
-                <div class="catagories border-1 col-span-2">
-                      <h2 class="font-bold p-4">Categories</h2>
-                </div>
-                <div class="card-container border-1 grid grid-cols-3 col-span-8">
+          <div class="functionalities grid grid-cols-12 w-11/12  mx-auto h-[100%] mt-5 gap-2 py-4">
 
+                <div class="catagories  col-span-2">
+                      <h2 class="font-bold p-4 text-2xl">Categories</h2>
+                      <button id="all-categories" class="text-left p-4 active w-[80%] rounded-md text-black font-bold cursor-pointer">All Categories</button>
+                      <div id="category" class="p-4">
+                           
+                      </div>
                 </div>
-                <div class="cart-history border-1 col-span-2 bg-white rounded-md p-3">
-                    <h2 class="font-bold">Your Cart</h2>
-                    <div class="card-of-cart-history bg-[#cff0dc] flex justify-between items-center rounded-xl">
-                         <div class="card-left p-4">
+                <div id="card-container" class="col-span-8 grid grid-cols-3 gap-2">
+                      
+                </div>
+                <div class="cart-history  col-span-2 bg-white rounded-md p-3">
+                    <h2 class="font-bold text-2xl">Your Cart</h2>
+                    <div class="card-of-cart-history bg-[#cff0dc] flex justify-between items-center rounded-xl mt-3">
+                         <div class="card-left p-3">
                             <h2 class="font-bold">Mango Tree</h2>
-                            <p class="text-gray-400">ট 500 x 1</p>
+                            <p class="text-gray-400 ">ট 500 x 1</p>
                          </div>
-                         <div class="card-right p-4">
+                         <div class="card-right pr-3">
                             <p class="text-gray-400 font-bold">X</p>
                          </div>
                     </div>
@@ -108,7 +115,7 @@ generations.</p>
 
 
         <!-- Details section -->
-     <section class="hidden">
+     <section>
         <h1 class="font-bold text-4xl text-center mb-8">About the Campaign</h1>
         <div class="campaign-details flex justify-between items-center gap-6 w-7/12 mx-auto">
         <div class="image flex-1">
@@ -128,7 +135,7 @@ generations.</p>
 
      <!-- Our Impact section -->
 
-      <section class="bg-[#cff0dc] py-20 hidden">
+      <section class="bg-[#cff0dc] py-20">
         <h1 class="font-bold text-3xl text-center mb-8">Our Impact</h1>
         <div class="impact-card-container flex justify-around items-center gap-8 w-11/12 mx-auto">
             <div class="card1 bg-white rounded-xl flex justify-center items-center flex-1 h-32">
@@ -154,7 +161,7 @@ generations.</p>
 
      <!-- Form Section  -->
         
-      <section class=" bg-green-800  py-14 hidden">
+      <section class=" bg-green-800  py-14">
         <h1 class="text-3xl text-center mb-8 text-white">Plants a Tree Today</h1>
         <div class="form w-4/12 mx-auto  p-8 bg-green-700 rounded-lg">
             <input type="text" placeholder="Your Name" class="input  mb-5 w-full" /> <br>
@@ -167,12 +174,12 @@ generations.</p>
 
       <!-- Footer section  -->
 
-      <footer class="bg-[#14532d] flex justify-center items-center hidden">
+      <footer class="bg-[#14532d] flex justify-center items-center">
           <div>
              <p class="text-white py-6">© 2025 Green Earth. All Rights Reserved.</p>
           </div>
       </footer>
 
-
+   <script src="./index.js"></script>
 </body>
 </html>
