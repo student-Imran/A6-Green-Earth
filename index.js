@@ -1,7 +1,16 @@
-
+const handleSpinner = (state) =>{
+  if(state==true){
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("function").classList.add("hidden");
+  }
+  else{
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("function").classList.remove("hidden");
+  }
+}
 
 const categoryTrees = (ctgName) =>{
-  
+   handleSpinner(true)
    const url = `https://openapi.programming-hero.com/api/category/${ctgName}`
    fetch(url)
    .then(res=>res.json())
@@ -19,7 +28,7 @@ const displayCategoryTrees = (ctgDetails) =>{
           <div class="card bg-white h-[450px] shadow-md">
                         <figure><img src="${ctgDetail.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
-                        <h2 onclick = "my_modal_5.showModal()" class="font-bold text-xl cursor-pointer">${ctgDetail.name}</h2>
+                        <h2 onclick = "cardDetail('${ctgDetail.id}')" class="font-bold text-xl cursor-pointer">${ctgDetail.name}</h2>
                         <p>${ctgDetail.description}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
@@ -34,7 +43,7 @@ const displayCategoryTrees = (ctgDetails) =>{
           cardContainer.appendChild(card)
         
     })
-    
+    handleSpinner(false)
 }
 
 
@@ -61,6 +70,7 @@ const displayCategory = (cateGories) =>{
 
 loadCategories();
 const loadTrees = () => {
+   handleSpinner(true)
     const url = `https://openapi.programming-hero.com/api/plants`;
     fetch(url)
     .then(res=>res.json())
@@ -96,6 +106,7 @@ const displayTrees = (trees) => {
           cardContainer.appendChild(card)
           
     });
+    handleSpinner(false)
 }
 loadTrees();
 
@@ -131,6 +142,8 @@ const displayCardDetail  = (response) =>{
     
 }
 
+
+ 
 
 
 
