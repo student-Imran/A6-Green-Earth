@@ -47,12 +47,14 @@ const displayCategoryTrees = (ctgDetails) =>{
     cardContainer.innerHTML = "";
     ctgDetails.forEach(ctgDetail => {
          const card = document.createElement("div");
+         const shortLength = Math.floor(ctgDetail.description.length*(2/3))
+         const shortDescription = ctgDetail.description.slice(0,shortLength) + '. . .';
           card.innerHTML = `
           <div class="card bg-white h-[450px] shadow-md">
                         <figure><img src="${ctgDetail.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
                         <h2 onclick = "cardDetail('${ctgDetail.id}')" class="font-bold text-xl cursor-pointer">${ctgDetail.name}</h2>
-                        <p>${ctgDetail.description}</p>
+                        <p>${shortDescription}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
                               <p class="text-green-400 px-2">${ctgDetail.category}</p>
@@ -117,14 +119,15 @@ const displayTrees = (trees) => {
      trees.forEach(tree => {
         // console.log(tree.name);
     
-        
+         const shortLength = Math.floor(tree.description.length*(2/3))
+         const shortDescription = tree.description.slice(0,shortLength) + '. . .';
           const card = document.createElement("div");
           card.innerHTML = `
-          <div class="card bg-white h-[450px] shadow-md">
+          <div class="card bg-white h-[430px] shadow-md">
                         <figure><img src="${tree.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
                         <h2 onclick = "cardDetail('${tree.id}')" class="font-bold text-xl cursor-pointer">${tree.name}</h2>
-                        <p>${tree.description}</p>
+                        <p>${shortDescription}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
                               <p class="text-green-400 px-2">${tree.category}</p>
@@ -165,7 +168,7 @@ const displayCardDetail  = (response) =>{
     
     <div class="flex-1 space-y-3">
         <p class="text-gray-800 text-xl"><span class="font-bold">Category :</span> ${response.category}</p>
-        <p class="text-gray-800 text-xl"><span class="font-bold">Price :</span> $${response.price}</p>
+        <p class="text-gray-800 text-xl"><span class="font-bold">Price :</span> ট${response.price}</p>
         <p class="text-gray-800 text-xl"><span class="font-bold">Description :</span> ${response.description}</p>
     </div>
 </div>
