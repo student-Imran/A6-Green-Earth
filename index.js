@@ -54,7 +54,7 @@ const displayCategoryTrees = (ctgDetails) =>{
                         <figure><img src="${ctgDetail.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
                         <h2 onclick = "cardDetail('${ctgDetail.id}')" class="font-bold text-xl cursor-pointer">${ctgDetail.name}</h2>
-                        <p>${shortDescription}</p>
+                        <p class="h-24">${shortDescription}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
                               <p class="text-green-400 px-2">${ctgDetail.category}</p>
@@ -127,7 +127,7 @@ const displayTrees = (trees) => {
                         <figure><img src="${tree.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
                         <h2 onclick = "cardDetail('${tree.id}')" class="font-bold text-xl cursor-pointer">${tree.name}</h2>
-                        <p>${shortDescription}</p>
+                        <p class="h-24">${shortDescription}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
                               <p class="text-green-400 px-2">${tree.category}</p>
