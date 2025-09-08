@@ -16,7 +16,7 @@ const displayCategoryTrees = (ctgDetails) =>{
     ctgDetails.forEach(ctgDetail => {
          const card = document.createElement("div");
           card.innerHTML = `
-          <div class="card bg-white h-[470px] shadow-md">
+          <div class="card bg-white h-[450px] shadow-md">
                         <figure><img src="${ctgDetail.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
                         <h2 onclick = "my_modal_5.showModal()" class="font-bold text-xl cursor-pointer">${ctgDetail.name}</h2>
@@ -78,10 +78,10 @@ const displayTrees = (trees) => {
         
           const card = document.createElement("div");
           card.innerHTML = `
-          <div class="card bg-white h-[470px] shadow-md">
+          <div class="card bg-white h-[450px] shadow-md">
                         <figure><img src="${tree.image}" alt=""></figure>
                         <div class="p-4 space-y-3">
-                        <h2 onclick = "my_modal_5.showModal()" class="font-bold text-xl cursor-pointer">${tree.name}</h2>
+                        <h2 onclick = "cardDetail('${tree.id}')" class="font-bold text-xl cursor-pointer">${tree.name}</h2>
                         <p>${tree.description}</p>
                         <div class="flex justify-between">
                             <div class="border-2 border-green-400 rounded-md">
@@ -98,6 +98,44 @@ const displayTrees = (trees) => {
     });
 }
 loadTrees();
+
+const cardDetail = async (id) =>{
+  console.log(id);
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`
+  const res = await fetch(url)
+  const details = await res.json()
+  displayCardDetail(details.plants)
+
+
+  
+}
+const displayCardDetail  = (response) =>{
+    console.log(response);
+    const detailsCard = document.getElementById("details-container");
+    detailsCard.innerHTML =`
+    <div class="model-card text-left p-4 bg-white h-[490px] rounded-lg shadow-md overflow-hidden flex flex-col">
+    <h1 class="font-bold text-2xl mb-3">${response.name}</h1>
+    
+    <figure class="h-[60%] mb-3 overflow-hidden flex items-center justify-center bg-gray-100">
+        <img class="object-cover w-full h-full" src="${response.image}" alt="${response.name}">
+    </figure>
+    
+    <div class="flex-1 space-y-3">
+        <p class="text-gray-800 text-xl"><span class="font-bold">Category :</span> ${response.category}</p>
+        <p class="text-gray-800 text-xl"><span class="font-bold">Price :</span> $${response.price}</p>
+        <p class="text-gray-800 text-xl"><span class="font-bold">Description :</span> ${response.description}</p>
+    </div>
+</div>
+    `
+    document.getElementById("my_modal_5").showModal();
+    
+}
+
+
+
+
+
+
 const addPrice = (name , price) =>{
 
    const addHere = document.getElementById("cart-history");
