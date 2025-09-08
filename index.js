@@ -27,7 +27,7 @@ const displayCategoryTrees = (ctgDetails) =>{
                             </div>
                             <p class=" text-green-700">ট <span class="text-green-700 font-bold text-xl">${ctgDetail.price}</span></p>
                         </div>
-                        <button onclick="addPrice()" class="add-cart bg-green-400 text-black w-full text-center p-3 rounded-3xl cursor-pointer">Add to Cart</button>
+                        <button onclick="addPrice('${ctgDetail.name}','${ctgDetail.price}')" class="add-cart bg-green-400 text-black w-full text-center p-3 rounded-3xl cursor-pointer">Add to Cart</button>
                         </div>
                       </div>
           `
@@ -99,8 +99,63 @@ const displayTrees = (trees) => {
 }
 loadTrees();
 const addPrice = (name , price) =>{
-  console.log(name)
-  console.log(price);
+
+   const addHere = document.getElementById("cart-history");
+   const card = document.createElement("div");
+    const removeTotal = document.getElementById("total");
+   
+  //  console.log(addHere.childElementCount);
+    let preTotal;
+    let amount = price;
+    if(removeTotal && addHere.childElementCount>1){
+     preTotal = parseInt(document.getElementById("amount").innerText);
+      // const Total =  parseInt(document.getElementById("amount").innerText);
+      console.log(preTotal);
+      console.log(typeof(preTotal));
+      removeTotal.remove();
+    }
+   
+   
+   card.innerHTML = `
+                 <div class=" flex justify-between items-center rounded-xl bg-[#cff0dc] mt-3">
+                        <div class="card-left p-3">
+                            <h2 class="font-bold">${name}</h2>
+                            <p class="text-gray-400 ">ট ${price} x 1</p>
+                         </div>
+                         <div class="card-right pr-3">
+                          <p class="text-red-800 font-bold">X</p>
+                         </div>
+                    </div>
+              
+   `
+  addHere.appendChild(card);
+  
+  if(preTotal>0){
+   amount = preTotal + parseInt(price);
+  }
+  
+  if (!document.getElementById("total")) {
+    const totalDiv = document.createElement("div");
+    // totalDiv.id = "total";
+    // totalDiv.className = "";
+    totalDiv.innerHTML = `
+       <div id="total" class="flex justify-between items-center"> 
+        <h1 class =" mt-4 font-bold text-xl">Total : </h1>
+        <p id="amount" class =" mt-4 font-bold text-xl">${amount}</p>
+       </div>
+    `
+    addHere.appendChild(totalDiv);
+
+  }
+  //  if(removeTotal && addHere.childElementCount>1){
+  //     const preTotal = parseInt(document.getElementById("amount").innerText);
+  //     const Total =  parseInt(document.getElementById("amount").innerText);
+  //     console.log(preTotal);
+  //     console.log(typeof(preTotal));
+      
+  //     removeTotal.remove();
+  //   }
+
   
   
 }
