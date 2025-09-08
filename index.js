@@ -102,6 +102,7 @@ const addPrice = (name , price) =>{
 
    const addHere = document.getElementById("cart-history");
    const card = document.createElement("div");
+  //  card.className = "cardOfCart";
     const removeTotal = document.getElementById("total");
    
   //  console.log(addHere.childElementCount);
@@ -115,20 +116,20 @@ const addPrice = (name , price) =>{
       removeTotal.remove();
     }
    
-   
    card.innerHTML = `
-                 <div class=" flex justify-between items-center rounded-xl bg-[#cff0dc] mt-3">
+                 <div class="cardOfCart flex justify-between items-center rounded-xl bg-[#cff0dc] mt-3">
                         <div class="card-left p-3">
                             <h2 class="font-bold">${name}</h2>
-                            <p class="text-gray-400 ">ট ${price} x 1</p>
+                            <p class="text-gray-400 ">ট <span>${price}</span> x 1</p>
                          </div>
                          <div class="card-right pr-3">
-                          <p class="text-red-800 font-bold">X</p>
+                          <button onclick="deleteItem('${price}','${name}')" class=" text-red-800 font-bold">X</button>
                          </div>
                     </div>
               
    `
   addHere.appendChild(card);
+  
   
   if(preTotal>0){
    amount = preTotal + parseInt(price);
@@ -147,16 +148,39 @@ const addPrice = (name , price) =>{
     addHere.appendChild(totalDiv);
 
   }
-  //  if(removeTotal && addHere.childElementCount>1){
-  //     const preTotal = parseInt(document.getElementById("amount").innerText);
-  //     const Total =  parseInt(document.getElementById("amount").innerText);
-  //     console.log(preTotal);
-  //     console.log(typeof(preTotal));
-      
-  //     removeTotal.remove();
-  //   }
+ 
 
   
   
 }
+const deleteItem = (taka , fruitName)=>{
+  
+  console.log(taka);
+  document.querySelectorAll(".cardOfCart").forEach((card)=>{
+    const fruitPrice = (parseInt(card.children[0].children[1].children[0].innerText));
+    const reqFruitName = card.children[0].children[0].innerHTML;
+    
+    
+    if(fruitPrice===parseInt(taka) && fruitName===reqFruitName){
+        card.remove();
+       const amountTotal = (document.getElementById("amount"));
+       const preTotal = parseInt(amountTotal.innerText)
+       const nowTotal = preTotal-fruitPrice;
+       console.log(nowTotal);
+       if(parseInt(nowTotal)===0){
+        console.log("no taka");
+         const removeTotal = document.getElementById("total");
+         removeTotal.remove();
+        
+       }
+       
+       amountTotal.innerText = nowTotal
+       
+        return;  
+    }
+    
+  })
+     
+     
+  }
 
