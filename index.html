@@ -54,7 +54,7 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn bg-[#FACC15] w-32 rounded-2xl border-none text-[#15803d] shadow-none mr-16">Button</a>
+    <a class="btn bg-[#FACC15] w-32 rounded-2xl border-none text-[#15803d] shadow-none mr-16">Plant a Tree</a>
   </div>
 </div>
        </nav>
@@ -94,7 +94,7 @@ generations.</p>
 
                 <div class="catagories  col-span-2">
                       <h2 class="font-bold p-4 text-2xl">Categories</h2>
-                      <button id="all-categories" class="text-left p-4 active w-[80%] rounded-md text-black font-bold cursor-pointer">All Categories</button>
+                      <button onclick="loadTrees()" id="all-categories" class="text-left p-4 active w-[80%] rounded-md text-black font-bold cursor-pointer hover:bg-green-700">All Categories</button>
                       <div id="category" class="p-4">
                            
                       </div>
@@ -111,7 +111,11 @@ generations.</p>
     
           </div>
 
-          
+           <div id="customAlert" class="hidden fixed top-0 left-10 md:left-[38%] text-white bg-black md:w-[400px] rounded-b-xl z-10 p-3">
+        
+       </div>
+       <div id="effect" class="effect hidden w-[100%] h-[100%] fixed left-0 top-0 bg-[#000000cc]">
+        </div>
 
 
 
@@ -120,7 +124,7 @@ generations.</p>
 
 
         <!-- Details section -->
-     <section>
+     <section class="mt-12">
         <h1 class="font-bold text-4xl text-center mb-8">About the Campaign</h1>
         <div class="campaign-details flex justify-between items-center gap-6 w-7/12 mx-auto">
         <div class="image flex-1">
@@ -153,6 +157,16 @@ generations.</p>
     </div>
   </div>
 </dialog>
+
+
+<!-- <------------------------->
+
+   
+
+
+
+
+
 
      
      <!-- Our Impact section -->

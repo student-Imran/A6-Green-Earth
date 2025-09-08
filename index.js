@@ -20,6 +20,29 @@ const categoryTrees = (ctgName) =>{
 }
 const displayCategoryTrees = (ctgDetails) =>{
     const removeIt = document.getElementById("all-categories").classList.remove("active");
+    const removeAll = document.getElementById("category");
+   for (let i = 0; i < removeAll.children.length; i++) {
+    const child = removeAll.children[i];
+    // console.log(ctgDetails[0].category);
+    // console.log(child.innerText);
+    
+     const categoryClean = String(ctgDetails[0].category).trim().toLowerCase();
+     const childTextClean = child.innerText.trim().toLowerCase();
+    // console.log(child.innerText);
+     if(categoryClean === childTextClean){
+      child.classList.add("active")
+      console.log("Active");
+      
+     }
+     else{
+           child.classList.remove("active")
+
+     }
+   }
+  //  console.log(ctgDetails[0].category);
+   
+  //  console.log(ctgDetails);
+   
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     ctgDetails.forEach(ctgDetail => {
@@ -57,6 +80,7 @@ const loadCategories = () => {
 
 const displayCategory = (cateGories) =>{
     const cateGory = document.getElementById("category");
+
     cateGory.innerHTML = "";
     
       cateGories.forEach(ctg => {
@@ -78,6 +102,14 @@ const loadTrees = () => {
     )
 }
 const displayTrees = (trees) => {
+  document.getElementById("all-categories").classList.add("active");
+  const removeAll = document.getElementById("category");
+   for (let i = 0; i < removeAll.children.length; i++) {
+    const child = removeAll.children[i];
+           child.classList.remove("active")
+
+     
+   }
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     // console.log(trees);
@@ -121,7 +153,7 @@ const cardDetail = async (id) =>{
   
 }
 const displayCardDetail  = (response) =>{
-    console.log(response);
+    // console.log(response);
     const detailsCard = document.getElementById("details-container");
     detailsCard.innerHTML =`
     <div class="model-card text-left p-4 bg-white h-[490px] rounded-lg shadow-md overflow-hidden flex flex-col">
@@ -151,7 +183,42 @@ const displayCardDetail  = (response) =>{
 
 const addPrice = (name , price) =>{
 
-   const addHere = document.getElementById("cart-history");
+  // console.log(name);
+     const customAlert = document.getElementById("customAlert");
+    document.getElementById("effect").style.display = 'block';
+  // document.getElementById("my_modal_5").showModal();
+   document.getElementById("effect").style.display = 'block';
+     const divAlert = document.createElement("div");
+     divAlert.innerHTML = `
+      <div class="div-1">
+           <p>green-earth-prep.netify.app says</p>
+        </div><br>
+        <div class="div-2">
+          <div class="calling flex gap-3">
+              
+             <p>${name}</p>
+             <p>has been added to the cart.</p>
+          </div>
+        </div><br>
+        <div class="div-3 flex justify-between">
+          <div>
+
+          </div>
+          <div>
+            <button id="alertOK-btn" class="bg-pink-300 text-black w-16 h-10 rounded-xl">OK</button>
+          </div>
+        </div>
+     `
+    //  customAlert.style.background= 'black'
+
+     customAlert.appendChild(divAlert)
+     customAlert.style.display = 'block';
+     const alertOkBtn = document.getElementById("alertOK-btn");
+     alertOkBtn.addEventListener("click",function(){
+       document.getElementById("effect").style.display = 'none';
+      customAlert.innerHTML ="";
+       customAlert.style = 'z=-1'
+         const addHere = document.getElementById("cart-history");
    const card = document.createElement("div");
   //  card.className = "cardOfCart";
     const removeTotal = document.getElementById("total");
@@ -162,8 +229,8 @@ const addPrice = (name , price) =>{
     if(removeTotal && addHere.childElementCount>1){
      preTotal = parseInt(document.getElementById("amount").innerText);
       // const Total =  parseInt(document.getElementById("amount").innerText);
-      console.log(preTotal);
-      console.log(typeof(preTotal));
+      // console.log(preTotal);
+      // console.log(typeof(preTotal));
       removeTotal.remove();
     }
    
@@ -199,38 +266,98 @@ const addPrice = (name , price) =>{
     addHere.appendChild(totalDiv);
 
   }
+
+     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //  const addHere = document.getElementById("cart-history");
+  //  const card = document.createElement("div");
+  // //  card.className = "cardOfCart";
+  //   const removeTotal = document.getElementById("total");
+   
+  // //  console.log(addHere.childElementCount);
+  //   let preTotal;
+  //   let amount = price;
+  //   if(removeTotal && addHere.childElementCount>1){
+  //    preTotal = parseInt(document.getElementById("amount").innerText);
+  //     // const Total =  parseInt(document.getElementById("amount").innerText);
+  //     // console.log(preTotal);
+  //     // console.log(typeof(preTotal));
+  //     removeTotal.remove();
+  //   }
+   
+  //  card.innerHTML = `
+  //                <div class="cardOfCart flex justify-between items-center rounded-xl bg-[#cff0dc] mt-3">
+  //                       <div class="card-left p-3">
+  //                           <h2 class="font-bold">${name}</h2>
+  //                           <p class="text-gray-400 ">ট <span>${price}</span> x 1</p>
+  //                        </div>
+  //                        <div class="card-right pr-3">
+  //                         <button onclick="deleteItem('${price}','${name}')" class=" text-red-800 font-bold">X</button>
+  //                        </div>
+  //                   </div>
+              
+  //  `
+  // addHere.appendChild(card);
+  
+  
+  // if(preTotal>0){
+  //  amount = preTotal + parseInt(price);
+  // }
+  
+  // if (!document.getElementById("total")) {
+  //   const totalDiv = document.createElement("div");
+  //   // totalDiv.id = "total";
+  //   // totalDiv.className = "";
+  //   totalDiv.innerHTML = `
+  //      <div id="total" class="flex justify-between items-center"> 
+  //       <h1 class =" mt-4 font-bold text-xl">Total : </h1>
+  //       <p id="amount" class =" mt-4 font-bold text-xl">${amount}</p>
+  //      </div>
+  //   `
+  //   addHere.appendChild(totalDiv);
+
+  // }
  
 
   
   
 }
 const deleteItem = (taka , fruitName)=>{
-  
-  console.log(taka);
-  document.querySelectorAll(".cardOfCart").forEach((card)=>{
-    const fruitPrice = (parseInt(card.children[0].children[1].children[0].innerText));
+  const cards = document.querySelectorAll(".cardOfCart");
+   for (let i = 0; i < cards.length; i++) {
+    const card = cards[i];
+    const fruitPrice = parseInt(card.children[0].children[1].children[0].innerText);
     const reqFruitName = card.children[0].children[0].innerHTML;
     
-    
-    if(fruitPrice===parseInt(taka) && fruitName===reqFruitName){
+    if (fruitPrice === parseInt(taka) && fruitName === reqFruitName) {
         card.remove();
-       const amountTotal = (document.getElementById("amount"));
-       const preTotal = parseInt(amountTotal.innerText)
-       const nowTotal = preTotal-fruitPrice;
-       console.log(nowTotal);
-       if(parseInt(nowTotal)===0){
-        console.log("no taka");
-         const removeTotal = document.getElementById("total");
-         removeTotal.remove();
+        const amountTotal = document.getElementById("amount");
+        const preTotal = parseInt(amountTotal.innerText);
+        const nowTotal = preTotal - fruitPrice;
         
-       }
-       
-       amountTotal.innerText = nowTotal
-       
-        return;  
+        if (parseInt(nowTotal) === 0) {
+            const removeTotal = document.getElementById("total");
+            removeTotal.remove();
+        }
+        
+        amountTotal.innerText = nowTotal;
+        break; 
     }
-    
-  })
+}
      
      
   }
