@@ -300,68 +300,6 @@ const addPrice = (name , price) =>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  //  const addHere = document.getElementById("cart-history");
-  //  const card = document.createElement("div");
-  // //  card.className = "cardOfCart";
-  //   const removeTotal = document.getElementById("total");
-   
-  // //  console.log(addHere.childElementCount);
-  //   let preTotal;
-  //   let amount = price;
-  //   if(removeTotal && addHere.childElementCount>1){
-  //    preTotal = parseInt(document.getElementById("amount").innerText);
-  //     // const Total =  parseInt(document.getElementById("amount").innerText);
-  //     // console.log(preTotal);
-  //     // console.log(typeof(preTotal));
-  //     removeTotal.remove();
-  //   }
-   
-  //  card.innerHTML = `
-  //                <div class="cardOfCart flex justify-between items-center rounded-xl bg-[#cff0dc] mt-3">
-  //                       <div class="card-left p-3">
-  //                           <h2 class="font-bold">${name}</h2>
-  //                           <p class="text-gray-400 ">ট <span>${price}</span> x 1</p>
-  //                        </div>
-  //                        <div class="card-right pr-3">
-  //                         <button onclick="deleteItem('${price}','${name}')" class=" text-red-800 font-bold">X</button>
-  //                        </div>
-  //                   </div>
-              
-  //  `
-  // addHere.appendChild(card);
-  
-  
-  // if(preTotal>0){
-  //  amount = preTotal + parseInt(price);
-  // }
-  
-  // if (!document.getElementById("total")) {
-  //   const totalDiv = document.createElement("div");
-  //   // totalDiv.id = "total";
-  //   // totalDiv.className = "";
-  //   totalDiv.innerHTML = `
-  //      <div id="total" class="flex justify-between items-center"> 
-  //       <h1 class =" mt-4 font-bold text-xl">Total : </h1>
-  //       <p id="amount" class =" mt-4 font-bold text-xl">${amount}</p>
-  //      </div>
-  //   `
-  //   addHere.appendChild(totalDiv);
-
-  // }
- 
-
   
   
 }
