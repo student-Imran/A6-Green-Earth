@@ -1,11 +1,37 @@
+const style = document.createElement("style")
+ 
+style.textContent = `
+button{
+  transition: all 0.3s ease;
+}
+button:hover{
+   box-shadow:0 4px 8px rgba(0,0,0,0.5);
+   opacity:0.9
+ }
+.card1{
+transition: all 0.3s ease;
+}
+.card1:hover{
+   box-shadow:0 4px 8px rgba(0,0,0,0.5);
+   opacity:0.9
+ }
+`
+document.head.appendChild(style);
+
+
+
+
 const handleSpinner = (state) =>{
   if(state==true){
     document.getElementById("spinner").classList.remove("hidden");
-    document.getElementById("function").classList.add("hidden");
+    document.getElementById("card-container").classList.add("hidden");
   }
   else{
     document.getElementById("spinner").classList.add("hidden");
-    document.getElementById("function").classList.remove("hidden");
+    
+    document.getElementById("card-container").classList.remove("hidden");
+    // console.log( document.getElementById("card-container").innerHTML);
+    
   }
 }
 
@@ -244,7 +270,7 @@ const addPrice = (name , price) =>{
                             <p class="text-gray-400 ">ট <span>${price}</span> x 1</p>
                          </div>
                          <div class="card-right pr-3">
-                          <button onclick="deleteItem('${price}','${name}')" class=" text-red-800 font-bold">X</button>
+                          <button onclick="deleteItem('${price}','${name}')" class=" text-red-800 font-bold cursor-pointer">X</button>
                          </div>
                     </div>
               
